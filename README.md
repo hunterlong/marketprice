@@ -28,8 +28,10 @@ price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRE
 ## Market Price Update Rate
 - MAINNET - Every 2 hours
 - TESTNET - Every 15 minutes
+
 Donating to the contract will help support the gas used for updating the exchange prices.
-Send ETH to address `0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC` with data: `0xed88c68e` gas limit: `50000`
+
+Send ETH to address `0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC` with data: `0xed88c68e` gas limit: `50000`. You can also send ETH or any other ERC20 directly to the contract address. Thank you for donating!
 
 ## Market Rate inside Smart Contract
 This contract holds multiple market rates for multiple cryptocurrencies, the contract automatically converts back into ETH value.
