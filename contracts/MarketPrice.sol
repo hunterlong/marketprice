@@ -35,6 +35,7 @@ contract MarketPrice {
     event DeletePrice(uint id);
     event UpdatedPrice(uint id);
     event RequestUpdate(uint id);
+    event Donation(address from);
 
     struct Token {
         string name;
@@ -90,7 +91,7 @@ contract MarketPrice {
 
     // delete a token from the contract
     function deleteToken(uint id) {
-        require(msg.sender==sender);
+        require(msg.sender==creator);
         DeletePrice(id);
         delete tokens[id];
     }
@@ -132,6 +133,7 @@ contract MarketPrice {
     function donate() external payable {
         require(msg.value >= 0);
         sender.transfer(msg.value);
+        Donation(msg.sender);
     }
 
 }

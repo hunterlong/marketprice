@@ -50,6 +50,7 @@ contract MarketPrice {
 MarketPrice public price;
 
 function Example() {
+  //price = MarketPrice(0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC) // MAINNET ADDRESS
   price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS
 }
 
@@ -84,7 +85,7 @@ function TradeOMG() constant returns (uint256) {
 
 # Supported Cryptos
 
-- ETH - `price.ETH(0);` 
+- ETH - `price.ETH(0);`
 - more too come very very soon
 
 # Market Price Update Rate
@@ -115,3 +116,27 @@ uint256 weiAmount = (price.USD(0) * 10000)     // $1000 worth of ETH
 
 uint256 weiAmount = (price.EUR(12) * 10000)    // 1000 EURO's worth of OMG
 ```
+
+# Testing
+```
+  Contract: MarketPrice
+    ✓ should insert new ETH price (48ms)
+    ✓ should insert new OMG price (38ms)
+    ✓ should insert new STORJ price
+    ✓ should get 0.01 USD worth of ETH
+    ✓ should get 0.01 EURO worth of ETH
+    ✓ should get 0.01 GBP worth of ETH
+    ✓ should get 0.01 USD worth of OMG
+    ✓ should get $105.75 USD worth of ETH
+    ✓ should get 1.00 EURO worth of STORJ
+    ✓ should get $100.00 USD worth of OMG
+    ✓ should change Creator address (41ms)
+    ✓ should change Sender address (47ms)
+    ✓ should delete STORJ token from database (43ms)
+    ✓ should donate to contract
+    ✓ should request to update price
+    ✓ should be MarketPrice contract address
+    ✓ should test $5.00 worth of ETH
+
+  17 passing (596ms)
+  ```
