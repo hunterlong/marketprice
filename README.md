@@ -6,7 +6,9 @@
   <a href="#implementing-inside-contracts">Implement</a>
   <br>
   MarketPrice(<b>0x0E9E062D7e60C8a6A406488631DAE1c5f6dB0e7D</b>)
-  <br><br>
+  <br>
+  <a href="https://travis-ci.org/hunterlong/marketprice"><img src="https://travis-ci.org/hunterlong/marketprice.svg?branch=master"></a>
+  <br>
 </p>
 
 # Coin Market Contract
