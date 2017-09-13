@@ -25,6 +25,10 @@ price = MarketPrice(0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC) // MAINNET ADDRE
 price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS (ROPSTEN)
 ```
 
+## Market Price Update Rate
+- MAINNET - Every 2 hours
+- TESTNET - Every 15 minutes
+
 ## Market Rate inside Smart Contract
 This contract holds multiple market rates for multiple cryptocurrencies, the contract automatically converts back into ETH value.
 
