@@ -7,11 +7,10 @@
   <br>
   MarketPrice(<b>0x0E9E062D7e60C8a6A406488631DAE1c5f6dB0e7D</b>)
   <br>
-  <a href="https://travis-ci.org/hunterlong/marketprice"><img src="https://travis-ci.org/hunterlong/marketprice.svg?branch=master"></a>
   <br>
 </p>
 
-# Coin Market Contract
+# Coin Market Price Smart Contract [![Build Status](https://travis-ci.org/hunterlong/marketprice.svg?branch=master)](https://travis-ci.org/hunterlong/marketprice)
 
 Retrieve Ethereum market price by referencing this smart contract! 
 Finally a way for smart contracts to get how much $1.00 is in ETH. 
