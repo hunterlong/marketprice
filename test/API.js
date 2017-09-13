@@ -42,7 +42,7 @@ contract('MarketPrice', function(accounts) {
 
   it("should get 0.01 USD worth of ETH", function() {
     return MarketPrice.deployed().then(function(instance) {
-      return meta.USD(0);
+      return instance.USD(0);
     }).then(function(amount) {
       assert.equal(amount, 33652131190000, "Ethereum EURO Price was set correctly");
     });
@@ -118,30 +118,20 @@ contract('MarketPrice', function(accounts) {
   });
 
 
-});
-
-
-
-contract('Example', function(accounts) {
-
-  it("should insert MarketPrice contract address", function() {
-    return Example.deployed().then(function(instance) {
-      metaExample = instance;
-      return metaExample.setMarketPrice(priceAddress, {from: account_one});
+    it("should be MarketPrice contract address", function() {
+      return Example.deployed().then(function(instance) {
+        return instance.PriceAddress.call()
+      }).then(function(address) {
+        assert.equal(address, priceAddress, "Example has MarketPrice contract correct");
+      });
     });
-  });
 
-
-  it("should test $5.00 worth of ETH", function() {
-    return Example.deployed().then(function(instance) {
-      return metaExample.FiveETHUSD();
-    }).then(function(amount) {
-      fiveBucks = amount.toNumber();
-      console.log(fiveBucks);
-      assert.equal(fiveBucks, 34586757420000, "$5.00 USD worth of ETH is correct");
+    it("should test $5.00 worth of ETH", function() {
+      return Example.deployed().then(function(instance) {
+        return instance.FiveETHUSD.call()
+      }).then(function(amount) {
+        assert.equal(amount.toNumber(), 16826065595000000, "$5.00 USD worth of ETH is correct");
+      });
     });
-  });
-
 
 });
-

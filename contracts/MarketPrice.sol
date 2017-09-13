@@ -7,9 +7,9 @@ pragma solidity 0.4.15;
     A community driven smart contract that lets your contracts use fiat
     amounts in USD, EURO, and GBP. Need to charge $10.50 for a contract call?
     With this contract, you can convert ETH and other crypto's.
-    
+
     Repo: https://github.com/hunterlong/coinmarketcontract
-    
+
     Examples:
 
       MarketPrice price = MarketPrice(CONTRACT_ADDRESS);
