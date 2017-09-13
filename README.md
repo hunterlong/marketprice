@@ -5,7 +5,7 @@
   <a href="https://etherscan.io/address/textmessage.eth#code">Mainnet</a> |
   <a href="#implementing-inside-contracts">Implement</a>
   <br>
-  MarketPrice(<b>0x0E9E062D7e60C8a6A406488631DAE1c5f6dB0e7D</b>)
+  MarketPrice(<b>0x97d63Fe27cA359422C10b25206346B9e24A676Ca</b>)
   <br>
   <br>
 </p>
@@ -21,7 +21,7 @@ This contract doesn't need any calls, all you need to do is reference it and sta
 All return values are measure in Ethereum's WEI amount, the lowest possible value. You can convert USD, EUR, and even GBP.
 
 ```
-price = MarketPrice(0xC119e802e99c1F66DC78fD11f9d21773C9b053D4) // TESTNET ADDRESS
+price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS
 ```
 
 ## Market Rate inside Smart Contract
@@ -29,17 +29,16 @@ This contract holds multiple market rates for multiple cryptocurrencies, the con
 
 ### Simple to Use Methods
 ```
-uint256 coin = price.ETH(12);    // returns ETH value for 1 OMG.
-
-uint256 cent = price.USD(12);    // returns $0.01 worth of OMG in USD.
-uint256 cent = price.EUR(12);    // returns $0.01 worth of OMG in Euro.
-uint256 cent = price.GBP(12);    // returns $0.01 worth of OMG in British Pound.
+uint256 coin = price.ETH(0);    // returns ETH value for 1 OMG. ETH/OMG
+uint256 cent = price.USD(0);    // returns $0.01 worth of ETH in USD.
+uint256 cent = price.EUR(0);    // returns $0.01 worth of OMG in Euro.
+uint256 cent = price.GBP(0);    // returns $0.01 worth of OMG in British Pound.
 ```
 
 ### Implement in your Contract
 First you must include the Pricing Contract on the top of your contract.
 ```
-contract Price {
+contract MarketPrice {
     function ETH(uint _id) constant returns (uint256);
     function USD(uint _id) constant returns (uint256);
     function EUR(uint _id) constant returns (uint256);
@@ -47,26 +46,26 @@ contract Price {
     function updatedAt(uint _id) constant returns (uint);
 }
 
-Price public price;
+MarketPrice public price;
 
 function Example() {
-  price = Price(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS
+  price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS
 }
 
 ```
-Here's an example of getting $5.00 USD worth of OMG coin valued as ETH. 
+Here's an example of getting $5.00 USD worth of ETH valued as USD. 
 
 ```
 // $0.01 * 500 = $5.00
-function FiveUSDtoOMG() constant returns (uint256) {
-    uint256 omg = price.USD(12);
-    return omg * 500;
+function FiveUSDinETH() constant returns (uint256) {
+    uint256 cents = price.USD(0);
+    return cents * 500;
 }
 ```
 
 ### Get Market Price Changed Block
 ```
-uint updatedBlock = price.updatedAt(12); // 4,109,482
+uint updatedBlock = price.updatedAt(0); // 4,109,482
 
 if (block.number - updatedBlock > 100) {
   // the price hasn't been updated in 100 blocks.
@@ -85,13 +84,7 @@ function TradeOMG() constant returns (uint256) {
 # Supported Cryptos
 
 - ETH - `price.ETH(0);` 
-- BTC - `price.ETH(1);`
-- BTC - `price.ETH(2);`
-- BTC - `price.ETH(3);`
-- BTC - `price.ETH(4);`
-- BTC - `price.ETH(5);`
-- BTC - `price.ETH(6);`
-- BTC - `price.ETH(7);`
+- more too come very very soon
 
 # Market Price Update Rate
 Updating the contract requires the wallet to pay the Gas for the transaction.
@@ -107,7 +100,7 @@ Times a Day | Supported Coins | Supported Fiat | Each Cost | Daily Cost | Monthl
 48          |       5         |        3       | 63,000    | 3,024,000  |  90,720,000
 
 # More Examples
-
+Some examples are not yet implemented on the current version.
 ```
 uint256 weiAmount = (price.USD(0) * 450)       // $4.50 worth of ETH
 
