@@ -2,10 +2,10 @@
   <img width="560" src="https://i.imgur.com/AGgUuW8.jpg"><br>
     <b>Coin Market Contract</b><br>
   <a href="https://ropsten.etherscan.io/address/0xc119e802e99c1f66dc78fd11f9d21773c9b053d4#code">Testnet</a> |
-  <a href="https://etherscan.io/address/textmessage.eth#code">Mainnet</a> |
+  <a href="https://etherscan.io/address/0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC#code">Mainnet</a> |
   <a href="#implementing-inside-contracts">Implement</a>
   <br>
-  MarketPrice(<b>0x97d63Fe27cA359422C10b25206346B9e24A676Ca</b>)
+  MarketPrice(<b>0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC</b>)
   <br>
   <br>
 </p>
@@ -21,7 +21,8 @@ This contract doesn't need any calls, all you need to do is reference it and sta
 All return values are measure in Ethereum's WEI amount, the lowest possible value. You can convert USD, EUR, and even GBP.
 
 ```
-price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS
+price = MarketPrice(0x2138FfE292fd0953f7fe2569111246E4DE9ff1DC) // MAINNET ADDRESS
+price = MarketPrice(0x97d63Fe27cA359422C10b25206346B9e24A676Ca) // TESTNET ADDRESS (ROPSTEN)
 ```
 
 ## Market Rate inside Smart Contract
